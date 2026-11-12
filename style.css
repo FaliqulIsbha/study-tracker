@@ -92,3 +92,15 @@ main{
 
     gap: 20px;
 }
+
+
+@media (max-width : 480px){
+    body{
+        padding:10px;
+        
+    }
+
+    main{
+        margin-top: 15px;
+    }
+}
