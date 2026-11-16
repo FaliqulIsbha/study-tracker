@@ -3,18 +3,12 @@ console.log("Hello, Student Study Tracker");
 // console.log(typeof undefined);
 
 const myName = "Faliqul Isbha";
-let studyHours = 3;
+let studyHours = 7;
 let dailyCompleted = false;
 let unassignedNotes;
 let empty = null;
 const dailyTarget = 5;
 
-
-// console.log(typeof name);
-// console.log(typeof studyHours);
-// console.log(typeof dailyCompleted);
-// console.log(typeof unassignedNotes);
-// console.log(typeof empty);
 
 let assignmentCompleted = true;
 let progress = (studyHours/dailyTarget) * 100;
@@ -24,3 +18,43 @@ let readyForToday = (goalCompleted && assignmentCompleted);
 console.log("Progress: " + progress + "%");
 console.log("Goal Completed: " + goalCompleted);
 console.log("Ready for Today: " + readyForToday);
+
+const message = document.getElementById("progress-message");
+
+
+if(studyHours >= dailyTarget){
+   message.textContent = "Goal completed!";
+}
+else if(studyHours > 0){
+     message.textContent = "Keep going!";
+}
+else{
+    message.textContent = "You haven't started yet!";
+}
+
+const studyTimeElement = document.getElementById("study-time");
+const percentageElement = document.getElementById("completion-percentage");
+
+percentageElement.textContent = progress + "% completed";
+studyTimeElement.textContent = (studyHours) + "/" + dailyTarget + " hours studied";
+
+
+const progressBar = document.getElementById("progress-fill");
+progressBar.style.width = progress + "%";
+
+
+
+// if(studyHours >= dailyTarget){
+//     if(assignmentCompleted === true){
+//     message.textContent ="Excellent! Your day is complete!"
+//     }
+//     else{
+//        message.textContent = "Study goal done, but assignment is pending!";
+//     }
+// }
+// else{
+//    message.textContent ="Keep studying!" ;
+// }
+
+
+
