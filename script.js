@@ -5,17 +5,15 @@ console.log("Hello, Student Study Tracker");
 
 function updateProgressMessage(studyHours, dailyTarget){
         const message = document.getElementById("progress-message");
-
-
-if(studyHours >= dailyTarget){
-   message.textContent = "Goal completed!";
-}
-else if(studyHours > 0){
-     message.textContent = "Keep going!";
-}
-else{
-    message.textContent = "You haven't started yet!";
-}
+        if(studyHours >= dailyTarget){
+            message.textContent = "Goal completed!";
+        }
+        else if(studyHours > 0){
+             message.textContent = "Keep going!";
+        }
+        else{
+            message.textContent = "You haven't started yet!";
+        }
 }
 
 function calculateProgress(studyHours, dailyTarget){
@@ -28,6 +26,7 @@ let dailyCompleted = false;
 let unassignedNotes;
 let empty = null;
 const dailyTarget = 5;
+const dsaHours = 2;
 
 updateProgressMessage(studyHours, dailyTarget);
 
@@ -38,6 +37,8 @@ let goalCompleted = (studyHours >= dailyTarget);
 let readyForToday = (goalCompleted && assignmentCompleted);
 
 let progress = calculateProgress(studyHours,dailyTarget);
+
+const dsaProgress = calculateProgress(dsaHours, dailyTarget);
 
 console.log("Progress: " + progress + "%");
 console.log("Goal Completed: " + goalCompleted);
@@ -54,6 +55,14 @@ studyTimeElement.textContent = (studyHours) + "/" + dailyTarget + " hours studie
 
 const progressBar = document.getElementById("progress-fill");
 progressBar.style.width = progress + "%";
+
+const dsaProgressBar = document.querySelector(".dsa-width");
+
+
+const dsaPercentageElement = document.getElementById("dsa-percentage");
+
+dsaPercentageElement.textContent = (dsaProgress) + "% completed";
+dsaProgressBar.style.width = dsaProgress + "%";
 
 
 
