@@ -20,15 +20,22 @@ function calculateProgress(studyHours, dailyTarget){
     return (studyHours / dailyTarget) * 100;
 }
 
+function updateSubjectProgress(progress, percentageElement, progressBar){
+    percentageElement.textContent = progress + "% completed";
+    progressBar.style.width = progress + "%";
+}
+
 const myName = "Faliqul Isbha";
 let studyHours = 2;
 let dailyCompleted = false;
 let unassignedNotes;
 let empty = null;
 const dailyTarget = 5;
-const dsaHours = 2;
+const dsaHours = 3;
+const javaHours = 4;
 
 updateProgressMessage(studyHours, dailyTarget);
+
 
 
 let assignmentCompleted = true;
@@ -39,6 +46,10 @@ let readyForToday = (goalCompleted && assignmentCompleted);
 let progress = calculateProgress(studyHours,dailyTarget);
 
 const dsaProgress = calculateProgress(dsaHours, dailyTarget);
+
+const javaProgress = calculateProgress(javaHours, dailyTarget);
+
+
 
 console.log("Progress: " + progress + "%");
 console.log("Goal Completed: " + goalCompleted);
@@ -53,16 +64,25 @@ percentageElement.textContent = progress + "% completed";
 studyTimeElement.textContent = (studyHours) + "/" + dailyTarget + " hours studied";
 
 
+
 const progressBar = document.getElementById("progress-fill");
 progressBar.style.width = progress + "%";
 
 const dsaProgressBar = document.querySelector(".dsa-width");
-
-
 const dsaPercentageElement = document.getElementById("dsa-percentage");
 
-dsaPercentageElement.textContent = (dsaProgress) + "% completed";
-dsaProgressBar.style.width = dsaProgress + "%";
+const javaPercentageElement = document.getElementById("java-percentage");
+const javaProgressBar = document.querySelector(".java-width");
+
+
+
+// dsaPercentageElement.textContent = (dsaProgress) + "% completed";
+// dsaProgressBar.style.width = dsaProgress + "%";
+
+
+updateSubjectProgress(dsaProgress, dsaPercentageElement, dsaProgressBar);
+
+updateSubjectProgress(javaProgress, javaPercentageElement, javaProgressBar);
 
 
 
