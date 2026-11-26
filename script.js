@@ -84,6 +84,15 @@ updateSubjectProgress(dsaProgress, dsaPercentageElement, dsaProgressBar);
 
 updateSubjectProgress(javaProgress, javaPercentageElement, javaProgressBar);
 
+// ARRAYS
+
+const subjectHours = [3, 4, 2, 3, 5];
+console.log(subjectHours);
+console.log(subjectHours.length);
+subjectHours[1] = 6;
+subjectHours.push(1);
+console.log(subjectHours);
+
 
 
 // if(studyHours >= dailyTarget){
