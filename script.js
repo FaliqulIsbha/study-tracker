@@ -86,12 +86,38 @@ updateSubjectProgress(javaProgress, javaPercentageElement, javaProgressBar);
 
 // ARRAYS
 
-const subjectHours = [3, 4, 2, 3, 5];
-console.log(subjectHours);
-console.log(subjectHours.length);
-subjectHours[1] = 6;
-subjectHours.push(1);
-console.log(subjectHours);
+const subjectHours = [1, 1, 1, 1, 1];
+// console.log(subjectHours);
+// console.log(subjectHours.length);
+// subjectHours[1] = 6;
+// subjectHours.push(1);
+// console.log(subjectHours);
+
+const subjects = ["DBMS", "DSA", "OS", "CN", "Java"];
+
+
+
+// for...of loop loop
+for(const hours of subjectHours){
+    console.log(calculateProgress(hours, dailyTarget) + "%");
+}
+
+for(let i =0;i<subjectHours.length;i++){
+    console.log(subjects[i] + " : " + calculateProgress(subjectHours[i], dailyTarget) + "%");
+}
+
+//updating bar and percentage
+
+for(let i =0;i<subjectHours.length;i++){
+    const pro = calculateProgress(subjectHours[i], dailyTarget);
+    const bar = document.querySelector("." + subjects[i].toLowerCase() + "-width");
+    const percentage = document.getElementById(subjects[i].toLowerCase() + "-percentage");
+
+    updateSubjectProgress(pro, percentage, bar);
+}
+
+const check = document.getElementById("automata-percenntage")
+console.log(check);
 
 
 
